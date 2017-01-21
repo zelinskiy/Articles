@@ -115,4 +115,59 @@ v3 = do
 
 Полная нормальная форма не содержит невычисленных выражений (редексов?). Для этого есть функция force и класс типов NFData. Для основных типов он уже определен. В нем нужно переопределять одну единственную функцию - rnf (reduce to normal form). Модуль Control.Seq из пакета parallel позволяет вычислять выражения до определенных степеней (может быть впринципе полезно).
 
+Стратегии вычисления - способы преобразования алгоритма в параллелизуемый код. Иногда требуется переписать алгоритм. 
+
+\begin{lstlisting}[language=Haskell]
+type Strategy a = a -> Eval a
+\end{lstlisting}
+
+Перепишем первую версию того кода сверху в терминах Стратегии Вычисления. Главная разница тут в том, что здесь мы имеем дело с типами в первую очередь. Для удобства предлагается оператор using.
+
+\begin{lstlisting}[language=Haskell]
+parPair :: Strategy (a,b)
+parPair (a,b) = do
+ a' <- rpar a
+ b' <- rpar b
+ return (a',b')
+ 
+using :: a -> Strategy a -> a
+x `using` s = runEval (s x)
+
+(fib 35, fib 36) `using` parPair
+\end{lstlisting}
+
+Для достижения большей гибкости предлагается не писать каждый раз стратегию "с нуля", а воспользоваться параметрической стратегией.
+
+\begin{lstlisting}[language=Haskell]
+evalPair :: Strategy a -> Strategy b -> Strategy (a,b)
+evalPair sa sb (a,b) = do
+ a' <- sa a
+ b' <- sb b
+ return (a',b')
+
+parPair :: Strategy (a,b)
+parPair = evalPair rpar rpar
+\end{lstlisting}
+
+Напишем функцию параллельного отображения в терминах стратегии. Здесь у нас две части - алгоритм, функция отображения map, и то что касается паралеллизма - факт, что мы вычисляем каждый элемент независимо.
+
+\begin{lstlisting}[language=Haskell]
+parMap :: (a -> b) -> [a] -> [b]
+parMap f xs = map f xs `using` parList rseq
+
+evalList :: Strategy a -> Strategy [a]
+evalList strat [] = return []
+evalList strat (x:xs) = do
+ x' <- strat x
+ xs' <- evalList strat xs
+ return (x':xs')
+ 
+parList :: Strategy a -> Strategy [a]
+parList strat = evalList (rparWith strat)
+\end{lstlisting}
+
+Отметим, что evalList и parList уже содержатся в Control.Parallel.Strategies
+
+
+
 \end{document}
