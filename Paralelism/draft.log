@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/W32TeX) (preloaded format=pdflatex 2017.1.18)  19 JAN 2017 17:42
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/W32TeX) (preloaded format=pdflatex 2017.1.18)  21 JAN 2017 17:53
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -8,8 +8,8 @@ LaTeX2e <2016/03/31> patch level 3
 Babel <3.9r> and hyphenation patterns for 83 language(s) loaded.
 (c:/texlive/2016/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2014/09/29 v1.4h Standard LaTeX document class
-(c:/texlive/2016/texmf-dist/tex/latex/base/size12.clo
-File: size12.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
+(c:/texlive/2016/texmf-dist/tex/latex/base/size10.clo
+File: size10.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
 )
 \c@part=\count79
 \c@section=\count80
@@ -779,119 +779,58 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
 
 {c:/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-Underfull \hbox (badness 10000) in paragraph at lines 34--36
+Underfull \hbox (badness 10000) in paragraph at lines 34--46
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 37--38
+Underfull \hbox (badness 10000) in paragraph at lines 47--50
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 39--40
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 41--42
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 43--44
-
- []
-
-
-Overfull \hbox (1.24065pt too wide) in paragraph at lines 45--47
-\T2A/cmr/m/n/12 Ќедетерминистска€ мо-дель про-грам-ми-ро-ва-ни€ - при каж-дом з
-а-пус-ке раз-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--47
-
- []
-
-
-Overfull \hbox (4.99527pt too wide) in paragraph at lines 48--49
-\T2A/cmr/m/n/12 Ѕоль-ши-ин-ство про-цес-со-ров пред-ла-га-ют де-тер-ми-ни-ро-ва
-н-ный па-ра-лел-лизм
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 48--49
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 50--51
-
- []
-
-[1]
-Underfull \hbox (badness 10000) in paragraph at lines 52--53
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 54--55
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 56--57
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 58--59
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 60--61
-
- []
-
-(c:/texlive/2016/texmf-dist/tex/latex/listings/lstlang1.sty
+[1] (c:/texlive/2016/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2015/06/04 1.6 listings language file
 )
 (c:/texlive/2016/texmf-dist/tex/latex/listings/lstlang2.sty
 File: lstlang2.sty 2015/06/04 1.6 listings language file
-) [2]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 86.
+)
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 75.
 
 (c:/texlive/2016/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 86.
- [3]
-Underfull \hbox (badness 10000) in paragraph at lines 123--124
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 75.
+ [2]
+Underfull \hbox (badness 10000) in paragraph at lines 112--113
 
+ []
+
+[3]
+Overfull \hbox (7.41872pt too wide) in paragraph at lines 169--170
+[]\T2A/cmr/m/n/10 ќтметим, что evalList и parList уже со-дер-жат-с€ в Control.P
+arallel.Strategies 
  []
 
 [4] (./draft.aux) ) 
 Here is how much of TeX's memory you used:
- 6025 strings out of 493013
- 74297 string characters out of 6136993
- 212714 words of memory out of 5000000
- 9475 multiletter control sequences out of 15000+600000
- 17432 words of font info for 51 fonts, out of 8000000 for 9000
+ 6039 strings out of 493013
+ 74396 string characters out of 6136993
+ 244138 words of memory out of 5000000
+ 9487 multiletter control sequences out of 15000+600000
+ 16522 words of font info for 48 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 40i,6n,42p,1262b,2110s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 40i,6n,42p,1262b,1623s stack positions out of 5000i,500n,10000p,200000b,80000s
 {c:/texlive/2016/texmf-dist/fonts/enc/dvips/cm-super/cm-supe
 r-t2a.enc}<c:/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb
-><c:/texlive/2016/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb><c:/texli
-ve/2016/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb><c:/texlive/2016/te
-xmf-dist/fonts/type1/public/cm-super/sfbx1728.pfb><c:/texlive/2016/texmf-dist/f
-onts/type1/public/cm-super/sfrm1200.pfb><c:/texlive/2016/texmf-dist/fonts/type1
-/public/cm-super/sfrm1440.pfb><c:/texlive/2016/texmf-dist/fonts/type1/public/cm
--super/sfrm2074.pfb><c:/texlive/2016/texmf-dist/fonts/type1/public/cm-super/sft
-i1200.pfb>
-Output written on draft.pdf (5 pages, 125304 bytes).
+><c:/texlive/2016/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb><c:/texli
+ve/2016/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb><c:/texlive/2016/te
+xmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb><c:/texlive/2016/texmf-dist/f
+onts/type1/public/cm-super/sfrm1000.pfb><c:/texlive/2016/texmf-dist/fonts/type1
+/public/cm-super/sfrm1200.pfb><c:/texlive/2016/texmf-dist/fonts/type1/public/cm
+-super/sfrm1728.pfb><c:/texlive/2016/texmf-dist/fonts/type1/public/cm-super/sft
+i1000.pfb>
+Output written on draft.pdf (5 pages, 132142 bytes).
 PDF statistics:
  53 PDF objects out of 1000 (max. 8388607)
  37 compressed objects within 1 object stream
