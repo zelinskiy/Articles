@@ -1,0 +1,31 @@
+
+\begin{code}%
+\>\<%
+\\
+\>\AgdaKeyword{open} \AgdaKeyword{import} \AgdaModule{Agda.Primitive} \AgdaKeyword{using} \AgdaSymbol{(}\_⊔\_\AgdaSymbol{)}\<%
+\\
+\>\<%
+\end{code}
+
+%<*sigma>
+\begin{code}%
+\>\<%
+\\
+\>\AgdaKeyword{record} \AgdaRecord{Σ} \AgdaSymbol{\{}\AgdaBound{ℓ₁} \AgdaBound{ℓ₂}\AgdaSymbol{\}} \AgdaSymbol{(}\AgdaBound{A} \AgdaSymbol{:} \AgdaPrimitiveType{Set} \AgdaBound{ℓ₁}\AgdaSymbol{)} \AgdaSymbol{(}\AgdaBound{B} \AgdaSymbol{:} \AgdaBound{A} \AgdaSymbol{→} \AgdaPrimitiveType{Set} \AgdaBound{ℓ₂}\AgdaSymbol{)} \AgdaSymbol{:} \AgdaPrimitiveType{Set} \AgdaSymbol{(}\AgdaBound{ℓ₁} \AgdaPrimitive{⊔} \AgdaBound{ℓ₂}\AgdaSymbol{)} \AgdaKeyword{where}\<%
+\\
+\>[0]\AgdaIndent{2}{}\<[2]%
+\>[2]\AgdaKeyword{constructor} \AgdaInductiveConstructor{Σ\_,\_}\<%
+\\
+\>[0]\AgdaIndent{2}{}\<[2]%
+\>[2]\AgdaKeyword{field}\<%
+\\
+\>[2]\AgdaIndent{4}{}\<[4]%
+\>[4]\AgdaField{pr₁} \AgdaSymbol{:} \AgdaBound{A}\<%
+\\
+\>[2]\AgdaIndent{4}{}\<[4]%
+\>[4]\AgdaField{pr₂} \AgdaSymbol{:} \AgdaBound{B} \AgdaBound{pr₁}\<%
+\\
+\>\<%
+\end{code}
+%<*/sigma>
+
