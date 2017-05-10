@@ -1,0 +1,57 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage[OT1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{listings}
+
+\lstdefinestyle{mystyle}{    
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=right,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=4
+}
+ 
+\lstset{style=mystyle}
+\date{\today}
+\author{Никита Юрченко}
+\title{Про Типы}
+\begin{document}
+\pagenumbering{gobble} 
+\maketitle
+\newpage
+\pagenumbering{arabic}  
+
+\section{Functional Programming Parallelism}
+(Конспект книги паралельный и конкуррентный хаскелл товарища Симона Марлоу)\\
+Во многих случаях не делают различия между паралеллизмом и многопоточностью.\\
+Parallelism - разделяем работу меджду несколькими раздельными вычислительными единицами (процессоры, ядра, ГПУ) в надежде что расходы на поддержку параллелизма будут ниже профитов от него\\
+
+\subsection{Lazy evaluations, WHNF}
+Хаскелл на самом деле не ленивый а нестрогий язык, но вот GHC действительно ленивый компилятор.\\
+
+
+\begin{lstlisting}[language=Haskell]
+parMap :: (a -> b) -> [a] -> [b]
+parMap f xs = map f xs `using` parList rseq
+
+evalList :: Strategy a -> Strategy [a]
+evalList strat [] = return []
+evalList strat (x:xs) = do
+ x' <- strat x
+ xs' <- evalList strat xs
+ return (x':xs')
+ 
+parList :: Strategy a -> Strategy [a]
+parList strat = evalList (rparWith strat)
+\end{lstlisting}
+
+\end{document}
