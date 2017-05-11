@@ -96,14 +96,22 @@ Mda kek \\
 \subsection{Виды равенства}
 
 Здесь много разночтений и философии, привожу по \cite{PML1980}.
-
+Надо разобраться, какие синонимы куда совать: judgemental, propositional, ...
 
 \begin{enumerate}
-\item Интенсиональное (alias definitional, judgmental)\\
-  \quotation{
-    Definitional equality is intensional equality, or equality of *meaning* (synonymy). Definitional equality == is a relation between *linguistic expressions*. ... it should not be confused with equality between objects.
-    \\ \\ Per - Martyn - L{\"o}f
-  }
+\item Интенсиональное (alias definitional)\\
+
+  Definitional equality is intensional equality, or equality of \textit{meaning} (synonymy). Definitional equality $\equiv$ is a relation between \textit{linguistic expressions} ... it should not be confused with \textit{equality between objects}\\ \\
+  (Per Martyn - L{\"o}f \cite{PML1980}, курсив мой)\\
+
+    Бывают двух видов:
+    \begin{itemize}
+  \item По определению (напр. two $\equiv$ suc (suc zero))
+  \item Вычислительные (напр. four $\equiv$ two + two)
+    \end{itemize}
+
+\item Экстенсиональное (alias propositional) \\
+  Экстенсиональное равенство выражает суждение(мета-высказывание о высказывании), однако есть способ включить его внутрь самой системы с помощью типа I(A,a,b), который выражает идею $a = b \in A$. Например, $ 2^2 = 2 + 2 \in \mathbb{N} $ - экстенсиональное равенство, в то же время очевидно, что левая и правая части  $2^2 \equiv 2 + 2 $ не равны по определению.\\
 
 \end{enumerate}
 
