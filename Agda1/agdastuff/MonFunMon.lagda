@@ -16,7 +16,6 @@ open import EqReason
 
 %<*monoid>
 \begin{code}
--- ε is \epsilon; · is \cdot
 record Monoid {ℓ} (M : Set ℓ) : Set ℓ where
   field
     ε : M

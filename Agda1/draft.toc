@@ -8,5 +8,8 @@
 \beamer@sectionintoc {7}{Lists}{30}{0}{7}
 \beamer@sectionintoc {8}{Vector}{35}{0}{8}
 \beamer@sectionintoc {9}{Coinduction}{38}{0}{9}
-\beamer@sectionintoc {10}{Finale}{44}{0}{10}
-\beamer@sectionintoc {11}{Questions}{48}{0}{11}
+\beamer@sectionintoc {10}{Monoids}{44}{0}{10}
+\beamer@sectionintoc {11}{Functors}{47}{0}{11}
+\beamer@sectionintoc {12}{Monads}{50}{0}{12}
+\beamer@sectionintoc {13}{Finale}{53}{0}{13}
+\beamer@sectionintoc {14}{Questions}{57}{0}{14}

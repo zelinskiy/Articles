@@ -67,7 +67,7 @@ data _≈_ {A : Set} : Stream A → Stream A → Set where
         ∞ (♭ xs ≈ ♭ ys) → x :: xs ≈ x :: ys
 
 infix 4 _≈_
-
+ 
 \end{code}
 %</equiv>
 
