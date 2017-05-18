@@ -1,0 +1,96 @@
+
+\begin{code}%
+\>\AgdaKeyword{module} \AgdaModule{Bool} \AgdaKeyword{where}\<%
+\\
+\>\AgdaKeyword{open} \AgdaKeyword{import} \AgdaModule{Agda.Primitive} \AgdaKeyword{using} \AgdaSymbol{(}\_⊔\_\AgdaSymbol{)}\<%
+\\
+\>\AgdaKeyword{open} \AgdaKeyword{import} \AgdaModule{MLTT} \AgdaKeyword{using} \AgdaSymbol{(}\_≡\_\AgdaSymbol{;} refl\AgdaSymbol{)}\<%
+\end{code}
+
+%<*defbool>
+\begin{code}%
+\>\AgdaKeyword{data} \AgdaDatatype{𝔹} \AgdaSymbol{:} \AgdaPrimitiveType{Set} \AgdaKeyword{where}\<%
+\\
+\>[0]\AgdaIndent{2}{}\<[2]%
+\>[2]\AgdaInductiveConstructor{tt} \AgdaSymbol{:} \AgdaDatatype{𝔹}\<%
+\\
+\>[0]\AgdaIndent{2}{}\<[2]%
+\>[2]\AgdaInductiveConstructor{ff} \AgdaSymbol{:} \AgdaDatatype{𝔹}\<%
+\end{code}
+%</defbool>
+
+%<*defops>
+\begin{code}%
+\>\AgdaKeyword{infixl} \AgdaNumber{5} \AgdaFixityOp{\_∧\_}\<%
+\\
+%
+\\
+\>\AgdaFunction{\_∧\_} \AgdaSymbol{:} \AgdaDatatype{𝔹} \AgdaSymbol{→} \AgdaDatatype{𝔹} \AgdaSymbol{→} \AgdaDatatype{𝔹}\<%
+\\
+\>\AgdaInductiveConstructor{tt} \AgdaFunction{∧} \AgdaInductiveConstructor{tt} \AgdaSymbol{=} \AgdaInductiveConstructor{tt}\<%
+\\
+\>\AgdaBound{a} \<[3]%
+\>[3]\AgdaFunction{∧} \AgdaBound{b} \<[8]%
+\>[8]\AgdaSymbol{=} \AgdaInductiveConstructor{ff}\<%
+\\
+%
+\\
+\>\AgdaKeyword{infixl} \AgdaNumber{4} \AgdaFixityOp{\_∨\_}\<%
+\\
+%
+\\
+\>\AgdaFunction{\_∨\_} \AgdaSymbol{:} \AgdaDatatype{𝔹} \AgdaSymbol{→} \AgdaDatatype{𝔹} \AgdaSymbol{→} \AgdaDatatype{𝔹}\<%
+\\
+\>\AgdaInductiveConstructor{tt} \AgdaFunction{∨} \AgdaBound{b} \AgdaSymbol{=} \AgdaInductiveConstructor{tt}\<%
+\\
+\>\AgdaInductiveConstructor{ff} \AgdaFunction{∨} \AgdaBound{b} \AgdaSymbol{=} \AgdaBound{b}\<%
+\end{code}
+%</defops>
+
+%<*idemp>
+\begin{code}%
+\>\<%
+\\
+\>\AgdaFunction{∧-idemp} \AgdaSymbol{:} \AgdaSymbol{∀} \AgdaSymbol{(}\AgdaBound{x} \AgdaSymbol{:} \AgdaDatatype{𝔹}\AgdaSymbol{)} \AgdaSymbol{→} \AgdaSymbol{(}\AgdaBound{x} \AgdaFunction{∧} \AgdaBound{x}\AgdaSymbol{)} \AgdaDatatype{≡} \AgdaBound{x}\<%
+\\
+\>\AgdaFunction{∧-idemp} \AgdaInductiveConstructor{tt} \AgdaSymbol{=} \AgdaInductiveConstructor{refl}\<%
+\\
+\>\AgdaFunction{∧-idemp} \AgdaInductiveConstructor{ff} \AgdaSymbol{=} \AgdaInductiveConstructor{refl}\<%
+\\
+\>\<%
+\end{code}
+%</idemp>
+
+%<*distrib>
+\begin{code}%
+\>\<%
+\\
+\>\AgdaFunction{∧-distr-∨} \AgdaSymbol{:} \AgdaSymbol{∀} \AgdaSymbol{\{}\AgdaBound{x} \AgdaBound{y} \AgdaBound{z}\AgdaSymbol{\}} \AgdaSymbol{→} \AgdaSymbol{(}\AgdaBound{x} \AgdaFunction{∧} \AgdaSymbol{(}\AgdaBound{y} \AgdaFunction{∨} \AgdaBound{z}\AgdaSymbol{))} \AgdaDatatype{≡} \AgdaSymbol{((}\AgdaBound{x} \AgdaFunction{∧} \AgdaBound{y}\AgdaSymbol{)} \AgdaFunction{∨} \AgdaSymbol{(}\AgdaBound{x} \AgdaFunction{∧} \AgdaBound{z}\AgdaSymbol{))}\<%
+\\
+\>\AgdaFunction{∧-distr-∨} \AgdaSymbol{\{}\AgdaInductiveConstructor{tt}\AgdaSymbol{\}} \AgdaSymbol{\{}\AgdaInductiveConstructor{tt}\AgdaSymbol{\}} \AgdaSymbol{\{}\AgdaBound{z}\AgdaSymbol{\}} \AgdaSymbol{=} \AgdaInductiveConstructor{refl}\<%
+\\
+\>\AgdaFunction{∧-distr-∨} \AgdaSymbol{\{}\AgdaInductiveConstructor{tt}\AgdaSymbol{\}} \AgdaSymbol{\{}\AgdaInductiveConstructor{ff}\AgdaSymbol{\}} \AgdaSymbol{\{}\AgdaBound{z}\AgdaSymbol{\}} \AgdaSymbol{=} \AgdaInductiveConstructor{refl}\<%
+\\
+\>\AgdaFunction{∧-distr-∨} \AgdaSymbol{\{}\AgdaInductiveConstructor{ff}\AgdaSymbol{\}} \AgdaSymbol{\{}\AgdaInductiveConstructor{tt}\AgdaSymbol{\}} \AgdaSymbol{\{}\AgdaBound{z}\AgdaSymbol{\}} \AgdaSymbol{=} \AgdaInductiveConstructor{refl}\<%
+\\
+\>\AgdaFunction{∧-distr-∨} \AgdaSymbol{\{}\AgdaInductiveConstructor{ff}\AgdaSymbol{\}} \AgdaSymbol{\{}\AgdaInductiveConstructor{ff}\AgdaSymbol{\}} \AgdaSymbol{\{}\AgdaBound{z}\AgdaSymbol{\}} \AgdaSymbol{=} \AgdaInductiveConstructor{refl}\<%
+\\
+%
+\\
+\>\<%
+\end{code}
+%</distrib>
+
+%<*absorp>
+\begin{code}%
+\>\<%
+\\
+\>\AgdaFunction{∧-∨-absorp} \AgdaSymbol{:} \AgdaSymbol{∀} \AgdaSymbol{\{}\AgdaBound{a} \AgdaBound{b}\AgdaSymbol{\}} \AgdaSymbol{→} \AgdaSymbol{(}\AgdaBound{a} \AgdaFunction{∧} \AgdaSymbol{(}\AgdaBound{a} \AgdaFunction{∨} \AgdaBound{b}\AgdaSymbol{))} \AgdaDatatype{≡} \AgdaInductiveConstructor{tt} \AgdaSymbol{→} \AgdaBound{a} \AgdaDatatype{≡} \AgdaInductiveConstructor{tt}\<%
+\\
+\>\AgdaFunction{∧-∨-absorp} \AgdaSymbol{\{}\AgdaInductiveConstructor{tt}\AgdaSymbol{\}} \AgdaBound{p} \AgdaSymbol{=} \AgdaInductiveConstructor{refl}\<%
+\\
+\>\AgdaFunction{∧-∨-absorp} \AgdaSymbol{\{}\AgdaInductiveConstructor{ff}\AgdaSymbol{\}} \AgdaSymbol{()}\<%
+\\
+\>\<%
+\end{code}
+%</absorp>

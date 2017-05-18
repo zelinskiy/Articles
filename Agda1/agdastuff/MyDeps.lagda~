@@ -1,0 +1,19 @@
+
+\begin{code}
+
+open import Agda.Primitive using (_⊔_)
+
+\end{code}
+
+%<*sigma>
+\begin{code}
+
+record Σ {a b} (A : Set a) (B : A → Set b) : Set (a ⊔ b) where
+  constructor Σ_,_
+  field
+    pr₁ : A
+    pr₂ : B pr₁
+
+\end{code}
+%<*/sigma>
+

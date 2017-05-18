@@ -1,0 +1,30 @@
+%\documentclass{beamer}
+
+    % When using XeLaTeX, the following should be used instead:
+     \documentclass[xetex, mathserif, serif]{beamer}
+    \usepackage{unicode-math} 
+    % The default font in XeLaTeX doesn't have the default bullet character, so 
+    % either change the font:
+\setmainfont{XITS}
+\setmathfont{XITS Math}
+    %
+    % Or change the character:
+    % \setbeamertemplate{itemize items}{•}
+     
+    \usepackage{agdastuff/latex/agda}
+    \usepackage{catchfilebetweentags}
+
+    \DeclareUnicodeCharacter{960}{$\pi$}
+
+    \begin{document}
+    \begin{frame}\frametitle{Some Agda code}
+
+      \begin{itemize}
+        \item The natural numbers
+      \end{itemize}
+
+      \ExecuteMetaData[agdastuff/latex/MyDeps.tex]{sigma}
+
+
+    \end{frame}
+    \end{document}

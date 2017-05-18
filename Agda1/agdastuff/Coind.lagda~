@@ -1,0 +1,10 @@
+\begin{code}
+
+open import Agda.Builtin.Coinduction
+  using (∞; ♯_; ♭)
+  
+-- ∞  : (A : Set) → Set
+-- ♯_ : {A : Set} → A → ∞ A 
+-- ♭  : {A : Set} → ∞ A → A   
+
+\end{code}
