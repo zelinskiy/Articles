@@ -1,0 +1,139 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage[OT1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{mathtools}
+\usepackage{tablefootnote}
+\usepackage{amsthm}
+
+\theoremstyle{definition}
+\newtheorem{Def}{Определение}
+\newtheoremstyle{Def}% <name>
+{3pt}% <Space above>
+{3pt}% <Space below>
+{\normalsize}% <Body font>
+{}% <Indent amount>
+{\itshape}% <Theorem head font>
+{:}% <Punctuation after theorem head>
+{.5em}% <Space after theorem headi>
+{}% <Theorem head spec (can be left empty, meaning `normal')>
+
+
+\lstdefinestyle{mystyle}{    
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=right,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=4
+}
+ 
+\lstset{style=mystyle}
+\date{\today}
+\title{Hask}
+\begin{document}
+\pagenumbering{gobble} 
+\maketitle
+\newpage
+\pagenumbering{arabic}
+
+\section{Plan}
+\begin{itemize}
+\item Теория множеств
+  \begin{enumerate}
+  \item Наивная vs Аксиоматическая теория множеств
+  \item Система Цермело - Френкеля
+  \item Системы Геделя-Бернайса, Куайна, Тарского, фон Неймана, Гротендика
+  \item Операции над множествами (Обьединение, Пересечение, Дополнение, Разность, Амальгамированная сумма, Декартово произведение, Симметрическая разность, Булеан, Мощность, законы Де Моргана)
+  \item Отношения и их свойства (симметричность, рефлексивность транзитивность, дистрибутивность, латинский квадрат, замыкания (алг. Флойда), аксиома выбора, пары, функции, иньективность, сюрьективность, биективность)
+  \item Теория порядков (Предпорядок, частичный, линейный, квази, well, отношение эквивалентности, диаграммы Хассе, грани, факторизация)
+  \item Бесконечные множества (Континуум гипотеза, действительные числа, вполне упорядоченные множества, ординалы, арифметика ординалов)
+    
+  \end{enumerate}
+\item Формальные языки и грамматики
+  \begin{enumerate}
+  \item Иерархия Хомского
+  \item КС-грамматики
+  \item Нормальная форма Хомского, приведение к ней
+  \item Алгоритмы  Кока-Янгера-Касами, Эрли    
+  \end{enumerate}  
+\item Лямбда исчисление
+  \begin{enumerate}
+  \item Безтиповое лямбда исчисление
+  \item $\alpha$ эквивалентность
+  \item $\beta$ редукция (Эквивалентность, Теорема Черча - Россера, Стратегии)
+  \item Комбинаторы (базисы, эквивалентность лямбде, полнота по тьюрингу)
+  \item Нормальные формы (Бета НФ, заголовочная, слабая заголовочная)
+  \item Кодирование чисел, логики, рекурсии, арифметики
+  \item Нотация де Брауна
+  \item Просто типизированное лямбда исчисление
+  \item Проверка и вывод типов в STLC
+  \item Система F
+  \item Алгоритм Хиндли - Милнера
+  \item *Виды. System F$\omega$.    
+  \item *Зависимые, линейные, аффинные типы
+  \end{enumerate}
+\item Алгебраические структуры
+  \begin{enumerate}
+  \item Теория категорий
+  \item Полугруппа
+  \item Моноид
+  \item Функтор
+  \item Аппликатив
+  \item Монада
+  \item Комонада
+  \item Группа
+  \item Решетка
+  \item *Декартово замкнутые категории и топосы
+  \end{enumerate}
+\item Haskell
+  \begin{enumerate}
+  \item Зипперы
+  \item Доказательство по эквивалентности
+  \item Доказательство по (структурной) индукции
+  \item Доказательсва по корекурсии   
+  \item System FC  
+  \item Ускорение
+  \item Параллельные вычисления
+    
+  \item *Веб (Yesod, Servant, Purescript)
+  \item *Схемы рекурсии
+  \item *Линзы
+  \item *Стрелки
+  \item *LiquidHaskell и QuickCheck
+  \item *Ленивое перепиcывание графов    
+  \end{enumerate}
+\item Логика
+  \begin{enumerate}
+  \item Аксиоматический метод. Реформа Тарского
+  \item Гильбертовские системы
+  \item Генценовская система LK
+  \item Безконтектстные системы натурального вывода
+  \item Эквивалентность STLC и PPIL
+  \item Генценовская система LJ
+  \item Алгебры Гейтинга
+  \item Модели Крипке
+  \item Расширение LK и LJ предикатами
+  \item Эквивалентность System F и LK$\forall$
+  \item *Формальная арифметика (Пеано, Сколема, Робинсона, Бюхи, Гейтинга)
+  \item *Теория типов Рассела
+  \item *Теория типов Мартин - Лефа    
+  \item *Пруверы
+  \end{enumerate}
+
+\item 
+  
+ 
+  
+\end{itemize}
+
+
+\end{document}
