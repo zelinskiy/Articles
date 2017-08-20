@@ -7,6 +7,22 @@
 \usepackage{amssymb}
 \usepackage{graphicx}
 \usepackage{listings}
+\usepackage{mathtools}
+\usepackage{tablefootnote}
+\usepackage{amsthm}
+
+\theoremstyle{definition}
+\newtheorem{Def}{Определение}
+\newtheoremstyle{Def}% <name>
+{3pt}% <Space above>
+{3pt}% <Space below>
+{\normalsize}% <Body font>
+{}% <Indent amount>
+{\itshape}% <Theorem head font>
+{:}% <Punctuation after theorem head>
+{.5em}% <Space after theorem headi>
+{}% <Theorem head spec (can be left empty, meaning `normal')>
+
 
 \lstdefinestyle{mystyle}{    
     breaklines=true,                 
@@ -30,28 +46,89 @@
 \newpage
 \pagenumbering{arabic}  
 
-\section{Functional Programming Parallelism}
-(Конспект книги паралельный и конкуррентный хаскелл товарища Симона Марлоу)\\
-Во многих случаях не делают различия между паралеллизмом и многопоточностью.\\
-Parallelism - разделяем работу меджду несколькими раздельными вычислительными единицами (процессоры, ядра, ГПУ) в надежде что расходы на поддержку параллелизма будут ниже профитов от него\\
+\section{Глава}
+Mda kek \\
+\subsection{Изоморфизм Карри - Говарда - Ламбека}
 
-\subsection{Lazy evaluations, WHNF}
-Хаскелл на самом деле не ленивый а нестрогий язык, но вот GHC действительно ленивый компилятор.\\
+Он же Computational Trinitarianism Харпера.\\
+Под логической частью имеется ввиду интуиционистское исчисление предикатов в BHK интерпретации. Типы приведены а-ля Хаскелл/Агда, отдельно надо будет ввести для просто типизированного лямбда исчисления (STLC), потому что получится громоздко. Категорная семантика Ловировская \cite{adjointnessLawvere}.\\ \\
+\begin{tabular}{ | c | c | c | }
+  \hline
+  Curry & Howard & Lambek \\
+  Proof Theory & Type Theory & Category Theory \\ \hline
+  Высказывание А & Тип А & Обьект А \\
+  Доказательство А & $\Gamma \vdash a : A$ & $ \Gamma \xrightarrow{\text{a}} A$ \\
+  $ A \wedge B $ & Pair A B & $A \times B $ произведение \\
+  $ A \vee B$ & Either A B & $A + B $ копроизведение \\
+  $ A \supset B $ & $ A \rightarrow B $ & $B^A $ экспоненциал \\
+  $\neg A (i. e. A \rightarrow \bot)$ & $ A \rightarrow \bot$ & ?  \\
+  $\top$ true & $ \top $ unit type  & $1$ конечный объект \\
+  $\bot$ false & $ \bot$ void type  & $0$ начальный объект \\
+  \hline
+  $\forall x \in A . B(x)$ & $\prod_{x:a}^{} B(x)$ & ? \\
+  $\exists x \in A . B(x)$ & $\sum_{x:a}^{} B(x)$ & ? \\
+  \hline
+  индукция & индуктивный тип (напр. $\mathbb{N}$) & начальная алгебра эндофунктора \\
+  \hline
+  закон Пирса  & Продолжения  & ? \\
+  $ ((P \rightarrow Q) \rightarrow P) \rightarrow P$ & & \\
+  \hline
+  Трансляция Гливенко & Continuation-passing style & Лемма Йонеды \\
+  \hline
+  ... & ... & ... \\
+  \hline
+\end{tabular}
+\\
+\\
+\begin{Def}
+Трансляция Гливенко (1929) ($alias$ Теорема Гливенко, negative translation, double-negation translation) :  Пропозициональная формула $\phi$ - классическая тавтология если и только если $\neg \neg \phi$ - интуиционистская тавтология. Расширена до логики первого порядка в виде расширений Куроды и Геделя-Генцена\\
+\end{Def}
+
+\subsection{Понятие типа}
+По-видимому, не имеет смысла говорить о типах вообще, вне конкретной формальной системы. Пока мне удалось найти 2 основных взгляда на типы:
+\begin{enumerate}
+\item Типы как множества. \\
+  Наиболее распространенный взгляд, особенно когда говорят об основаниях математики и сферической ТТ в вакууме.
+\item Типы как приписки к термам. \\
+  Распространено в литературе по лямбда исчислению и всему что к нему примыкает. Также популярна у имплементоров языков программирования.
+\end{enumerate}
+
+\subsection{Виды равенства}
+
+Здесь много разночтений и философии, привожу по \cite{PML1980}.
+Надо разобраться, какие синонимы куда совать: judgemental, propositional, ...
+
+\begin{enumerate}
+\item Интенсиональное (alias definitional)\\
+
+  Definitional equality is intensional equality, or equality of \textit{meaning} (synonymy). Definitional equality $\equiv$ is a relation between \textit{linguistic expressions} ... it should not be confused with \textit{equality between objects}\\ \\
+  (Per Martyn - L{\"o}f \cite{PML1980}, курсив мой)\\
+
+    Бывают двух видов:
+    \begin{itemize}
+  \item По определению (напр. two $\equiv$ suc (suc zero))
+  \item Вычислительные (напр. four $\equiv$ two + two)
+    \end{itemize}
+
+\item Экстенсиональное (alias propositional) \\
+  Экстенсиональное равенство выражает суждение(мета-высказывание о высказывании), однако есть способ включить его внутрь самой системы с помощью типа I(A,a,b), который выражает идею $a = b \in A$. Например, $ 2^2 = 2 + 2 \in \mathbb{N} $ - экстенсиональное равенство, в то же время очевидно, что левая и правая части  $2^2 \equiv 2 + 2 $ не равны по определению.\\
+
+\end{enumerate}
+
+\newpage
 
 
-\begin{lstlisting}[language=Haskell]
-parMap :: (a -> b) -> [a] -> [b]
-parMap f xs = map f xs `using` parList rseq
+\begin{thebibliography}{9}
 
-evalList :: Strategy a -> Strategy [a]
-evalList strat [] = return []
-evalList strat (x:xs) = do
- x' <- strat x
- xs' <- evalList strat xs
- return (x':xs')
+\bibitem{PML1980} 
+Per Martin-Löf : Intuitionistic Type Theory
+
+\bibitem{adjointnessLawvere} 
+Lawvere : Adjointness in Foundations
+\\\texttt{http://www.tac.mta.ca/tac/reprints/articles/16/tr16.pdf}
+
+\end{thebibliography}
  
-parList :: Strategy a -> Strategy [a]
-parList strat = evalList (rparWith strat)
-\end{lstlisting}
+\end{document}
 
 \end{document}
